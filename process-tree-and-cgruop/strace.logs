@@ -1,0 +1,422 @@
+sudo strace -f -e trace=clone,execve,exit_group -p $(systemctl show containerd -p MainPID --value) 2>&1 | grep -v "SIGURG"
+strace: Process 1108358 attached with 9 threads
+[pid 1130025] +++ exited with 0 +++
+[pid 1129832] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142659 attached
+ <unfinished ...>
+[pid 1108435] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142660 attached
+ <unfinished ...>
+[pid 1142660] execve("/opt/cni/bin/loopback", ["/opt/cni/bin/loopback"], 0xc0007cb780 /* 14 vars */ <unfinished ...>
+[pid 1108435] <... clone resumed>, parent_tid=[111]) = 1142660
+[pid 1142660] <... execve resumed>)     = 0
+[pid 1142659] execve("/opt/cni/bin/cilium-cni", ["/opt/cni/bin/cilium-cni"], 0xc000f1ca80 /* 14 vars */ <unfinished ...>
+[pid 1129832] <... clone resumed>, parent_tid=[108]) = 1142659
+[pid 1142659] <... execve resumed>)     = 0
+[pid 1142660] clone(child_stack=0xc000024000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142661 attached
+, tls=0xc000040090) = 1142661
+[pid 1142659] clone(child_stack=0xc000060000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142662 attached
+ <unfinished ...>
+[pid 1142660] clone(child_stack=0xc00005a000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS <unfinished ...>
+[pid 1142659] <... clone resumed>, tls=0xc00007e098) = 1142662
+[pid 1142660] <... clone resumed>, tls=0xc000040890) = 1142664
+strace: Process 1142663 attached
+strace: Process 1142664 attached
+[pid 1142660] clone(child_stack=0xc000056000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142665 attached
+, tls=0xc000041090) = 1142665
+[pid 1142659] clone(child_stack=0xc000098000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142666 attached
+, tls=0xc00007e898) = 1142666
+[pid 1142659] clone(child_stack=0xc000094000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142667 attached
+, tls=0xc00007f098) = 1142667
+[pid 1142660] clone(child_stack=0xc0000b4000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142668 attached
+, tls=0xc000041890) = 1142668
+[pid 1142660] exit_group(0)             = ?
+[pid 1142668] +++ exited with 0 +++
+[pid 1142665] +++ exited with 0 +++
+[pid 1142661] +++ exited with 0 +++
+[pid 1142664] +++ exited with 0 +++
+[pid 1142660] +++ exited with 0 +++
+[pid 1108364] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142660, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142659] clone(child_stack=0xc0002f6000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS, tls=0xc000427098) = 1142669
+strace: Process 1142669 attached
+[pid 1142659] clone(child_stack=0xc00079c000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142678 attached
+, tls=0xc0002e5098) = 1142678
+[pid 1142659] exit_group(0)             = ?
+[pid 1142666] +++ exited with 0 +++
+[pid 1142669] +++ exited with 0 +++
+[pid 1142667] +++ exited with 0 +++
+[pid 1142662] +++ exited with 0 +++
+[pid 1142678] +++ exited with 0 +++
+[pid 1142659] +++ exited with 0 +++
+[pid 1108435] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142659, si_uid=0, si_status=0, si_utime=3 /* 0.03 s */, si_stime=2 /* 0.02 s */} ---
+[pid 1108364] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142819 attached
+ <unfinished ...>
+[pid 1142819] execve("/usr/local/bin/containerd-shim-runc-v2", ["/usr/local/bin/containerd-shim-r"..., "-namespace", "k8s.io", "-address", "/run/containerd/containerd.sock", "-publish-binary", "/usr/local/bin/containerd", "-id", "b87779f8e02e8bda4b03dec2a8f7ca14"..., "start"], 0xc001128e70 /* 13 vars */) = 0
+[pid 1108364] <... clone resumed>, parent_tid=[82]) = 1142819
+[pid 1142819] clone(child_stack=0xc000036000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142820 attached
+, tls=0xc000054098) = 1142820
+[pid 1142819] clone(child_stack=0xc000070000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS, tls=0xc000054798) = 1142821
+strace: Process 1142821 attached
+[pid 1142819] clone(child_stack=0xc00006c000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142822 attached
+, tls=0xc000054e98) = 1142822
+[pid 1142819] clone(child_stack=0xc000188000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142823 attached
+, tls=0xc000056a98) = 1142823
+[pid 1142823] clone(child_stack=0xc000184000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142824 attached
+, tls=0xc000057198) = 1142824
+[pid 1142821] clone(child_stack=0xc0001b0000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142825 attached
+, tls=0xc00019a098) = 1142825
+[pid 1142825] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORKstrace: Process 1142826 attached
+ <unfinished ...>
+[pid 1142826] exit_group(0)             = ?
+[pid 1142825] <... clone resumed>, parent_tid=[11]) = 1142826
+[pid 1142826] +++ exited with 0 +++
+[pid 1142825] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142827 attached
+ <unfinished ...>
+[pid 1142827] execve("/usr/local/bin/containerd-shim-runc-v2", ["/usr/local/bin/containerd-shim-r"..., "-namespace", "k8s.io", "-id", "b87779f8e02e8bda4b03dec2a8f7ca14"..., "-address", "/run/containerd/containerd.sock"], 0xc0000f0880 /* 14 vars */ <unfinished ...>
+[pid 1142825] <... clone resumed>, parent_tid=[12]) = 1142827
+[pid 1142827] <... execve resumed>)     = 0
+[pid 1142825] exit_group(0)             = ?
+[pid 1142824] +++ exited with 0 +++
+[pid 1142822] +++ exited with 0 +++
+[pid 1142821] +++ exited with 0 +++
+[pid 1142820] +++ exited with 0 +++
+[pid 1142825] +++ exited with 0 +++
+[pid 1142823] +++ exited with 0 +++
+[pid 1142819] +++ exited with 0 +++
+[pid 1108360] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142819, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142827] clone(child_stack=0xc000038000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142828 attached
+, tls=0xc000058098) = 1142828
+[pid 1142827] clone(child_stack=0xc000074000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142829 attached
+, tls=0xc000058798) = 1142829
+[pid 1142827] clone(child_stack=0xc000070000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS <unfinished ...>
+[pid 1142829] clone(child_stack=0xc000098000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142830 attached
+strace: Process 1142831 attached
+ <unfinished ...>
+[pid 1142827] <... clone resumed>, tls=0xc000058e98) = 1142830
+[pid 1142829] <... clone resumed>, tls=0xc000080098) = 1142831
+[pid 1142827] clone(child_stack=0xc000094000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142832 attached
+, tls=0xc000080798) = 1142832
+[pid 1142827] clone(child_stack=0xc000242000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142833 attached
+, tls=0xc000081c98) = 1142833
+[pid 1142832] clone(child_stack=0xc00023e000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142834 attached
+, tls=0xc000280098) = 1142834
+[pid 1142832] clone(child_stack=0xc000144000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142835 attached
+, tls=0xc000124798) = 1142835
+[pid 1142829] clone(child_stack=0xc000310000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142836 attached
+, tls=0xc000059598) = 1142836
+[pid 1142835] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORKstrace: Process 1142837 attached
+ <unfinished ...>
+[pid 1142837] exit_group(0)             = ?
+[pid 1142837] +++ exited with 0 +++
+[pid 1142835] <... clone resumed>, parent_tid=[14]) = 1142837
+[pid 1142835] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142838 attached
+ <unfinished ...>
+[pid 1142838] execve("/usr/local/bin/runc", ["/usr/local/bin/runc", "--root", "/run/containerd/runc/k8s.io", "--log", "/run/containerd/io.containerd.ru"..., "--log-format", "json", "--systemd-cgroup", "create", "--bundle", "/run/containerd/io.containerd.ru"..., "--pid-file", "/run/containerd/io.containerd.ru"..., "b87779f8e02e8bda4b03dec2a8f7ca14"...], 0xc000022b60 /* 13 vars */ <unfinished ...>
+[pid 1142835] <... clone resumed>, parent_tid=[15]) = 1142838
+[pid 1142838] <... execve resumed>)     = 0
+strace: Process 1142839 attached
+strace: Process 1142840 attached
+strace: Process 1142841 attached
+strace: Process 1142842 attached
+strace: Process 1142843 attached
+strace: Process 1142844 attached
+strace: Process 1142845 attached
+[pid 1142838] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORKstrace: Process 1142846 attached
+ <unfinished ...>
+[pid 1142846] exit_group(0)             = ?
+[pid 1142846] +++ exited with 0 +++
+[pid 1142838] <... clone resumed>, parent_tid=[17]) = 1142846
+strace: Process 1142847 attached
+[pid 1142838] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142848 attached
+ <unfinished ...>
+[pid 1142848] execve("/proc/self/fd/6", ["/usr/local/bin/runc", "init"], 0xc00027f7c0 /* 7 vars */ <unfinished ...>
+[pid 1142838] <... clone resumed>, parent_tid=[18]) = 1142848
+[pid 1142848] <... execve resumed>)     = 0
+strace: Process 1142849 attached
+[pid 1142848] clone(child_stack=0x7ffe6af930b0, flags=CLONE_PARENT|SIGCHLDstrace: Process 1142850 attached
+) = 1142850
+[pid 1142850] clone(child_stack=0x7ffe6af930b0, flags=CLONE_PARENT|SIGCHLDstrace: Process 1142851 attached
+) = 1142851
+[pid 1142850] exit_group(0)             = ?
+[pid 1142850] +++ exited with 0 +++
+[pid 1142838] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142850, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142848] exit_group(0)             = ?
+[pid 1142848] +++ exited with 0 +++
+[pid 1142839] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142848, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142852 attached
+strace: Process 1142853 attached
+strace: Process 1142854 attached
+strace: Process 1142855 attached
+strace: Process 1142856 attached
+[pid 1142856] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142855] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142854] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142853] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142852] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142855] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142856] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142854] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142853] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142852] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142845] +++ exited with 0 +++
+[pid 1142838] exit_group(0)             = ?
+[pid 1142849] +++ exited with 0 +++
+[pid 1142847] +++ exited with 0 +++
+[pid 1142840] +++ exited with 0 +++
+[pid 1142844] +++ exited with 0 +++
+[pid 1142843] +++ exited with 0 +++
+[pid 1142841] +++ exited with 0 +++
+[pid 1142839] +++ exited with 0 +++
+[pid 1142842] +++ exited with 0 +++
+[pid 1142838] +++ exited with 0 +++
+[pid 1142835] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142838, si_uid=0, si_status=0, si_utime=0, si_stime=2 /* 0.02 s */} ---
+[pid 1142830] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142857 attached
+ <unfinished ...>
+[pid 1142857] execve("/usr/local/bin/runc", ["/usr/local/bin/runc", "--root", "/run/containerd/runc/k8s.io", "--log", "/run/containerd/io.containerd.ru"..., "--log-format", "json", "--systemd-cgroup", "start", "b87779f8e02e8bda4b03dec2a8f7ca14"...], 0xc0000c8540 /* 13 vars */ <unfinished ...>
+[pid 1142830] <... clone resumed>, parent_tid=[18]) = 1142857
+[pid 1142857] <... execve resumed>)     = 0
+strace: Process 1142858 attached
+strace: Process 1142859 attached
+strace: Process 1142860 attached
+strace: Process 1142861 attached
+strace: Process 1142862 attached
+[pid 1142861] exit_group(0)             = ?
+[pid 1142862] +++ exited with 0 +++
+[pid 1142861] +++ exited with 0 +++
+[pid 1142860] +++ exited with 0 +++
+[pid 1142859] +++ exited with 0 +++
+[pid 1142858] +++ exited with 0 +++
+[pid 1142857] +++ exited with 0 +++
+[pid 1142835] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142857, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142851] execve("/pause", ["/pause"], 0xc0000d70e0 /* 2 vars */ <unfinished ...>
+[pid 1142855] +++ exited with 0 +++
+[pid 1142856] +++ exited with 0 +++
+[pid 1142854] +++ exited with 0 +++
+[pid 1142853] +++ exited with 0 +++
+[pid 1142852] +++ exited with 0 +++
+[pid 1142851] <... execve resumed>)     = 0
+strace: Process 1142863 attached
+[pid 1142836] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142864 attached
+ <unfinished ...>
+[pid 1142864] execve("/usr/local/bin/runc", ["/usr/local/bin/runc", "--root", "/run/containerd/runc/k8s.io", "--log", "/run/containerd/io.containerd.ru"..., "--log-format", "json", "--systemd-cgroup", "create", "--bundle", "/run/containerd/io.containerd.ru"..., "--pid-file", "/run/containerd/io.containerd.ru"..., "1bd7daf8a7786a1f9d62a2585a2dd796"...], 0xc0000c8c40 /* 13 vars */ <unfinished ...>
+[pid 1142836] <... clone resumed>, parent_tid=[21]) = 1142864
+[pid 1142864] <... execve resumed>)     = 0
+strace: Process 1142865 attached
+strace: Process 1142866 attached
+strace: Process 1142867 attached
+strace: Process 1142868 attached
+strace: Process 1142869 attached
+strace: Process 1142870 attached
+strace: Process 1142871 attached
+[pid 1142864] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORKstrace: Process 1142872 attached
+ <unfinished ...>
+[pid 1142872] exit_group(0)             = ?
+[pid 1142872] +++ exited with 0 +++
+[pid 1142864] <... clone resumed>, parent_tid=[17]) = 1142872
+[pid 1142864] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142873 attached
+strace: Process 1142874 attached
+ <unfinished ...>
+[pid 1142874] execve("/proc/self/fd/6", ["/usr/local/bin/runc", "init"], 0xc000117b80 /* 7 vars */ <unfinished ...>
+[pid 1142864] <... clone resumed>, parent_tid=[18]) = 1142874
+[pid 1142874] <... execve resumed>)     = 0
+[pid 1142874] clone(child_stack=0x7fff46614eb0, flags=CLONE_PARENT|SIGCHLDstrace: Process 1142875 attached
+) = 1142875
+[pid 1142875] clone(child_stack=0x7fff46614eb0, flags=CLONE_PARENT|SIGCHLDstrace: Process 1142876 attached
+) = 1142876
+[pid 1142875] exit_group(0)             = ?
+[pid 1142874] exit_group(0 <unfinished ...>
+[pid 1142875] +++ exited with 0 +++
+[pid 1142874] <... exit_group resumed>) = ?
+[pid 1142865] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142875, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142874] +++ exited with 0 +++
+[pid 1142864] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142874, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142877 attached
+strace: Process 1142878 attached
+strace: Process 1142879 attached
+strace: Process 1142880 attached
+strace: Process 1142881 attached
+strace: Process 1142882 attached
+[pid 1142882] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142881] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142880] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142879] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142878] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142882] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142881] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142880] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142879] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142878] --- SIGRT_1 {si_signo=SIGRT_1, si_code=SI_TKILL, si_pid=1, si_uid=0} ---
+[pid 1142873] +++ exited with 0 +++
+[pid 1142864] exit_group(0)             = ?
+[pid 1142871] +++ exited with 0 +++
+[pid 1142869] +++ exited with 0 +++
+[pid 1142866] +++ exited with 0 +++
+[pid 1142865] +++ exited with 0 +++
+[pid 1142868] +++ exited with 0 +++
+[pid 1142870] +++ exited with 0 +++
+[pid 1142877] +++ exited with 0 +++
+[pid 1142867] +++ exited with 0 +++
+[pid 1142864] +++ exited with 0 +++
+[pid 1142836] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142864, si_uid=0, si_status=0, si_utime=0, si_stime=2 /* 0.02 s */} ---
+[pid 1142835] clone(child_stack=0xc00030c000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLSstrace: Process 1142883 attached
+, tls=0xc000280798) = 1142883
+[pid 1142834] clone(child_stack=NULL, flags=CLONE_VM|CLONE_PIDFD|CLONE_VFORK|SIGCHLDstrace: Process 1142884 attached
+ <unfinished ...>
+[pid 1142884] execve("/usr/local/bin/runc", ["/usr/local/bin/runc", "--root", "/run/containerd/runc/k8s.io", "--log", "/run/containerd/io.containerd.ru"..., "--log-format", "json", "--systemd-cgroup", "start", "1bd7daf8a7786a1f9d62a2585a2dd796"...], 0xc000022af0 /* 13 vars */ <unfinished ...>
+[pid 1142834] <... clone resumed>, parent_tid=[30]) = 1142884
+[pid 1142884] <... execve resumed>)     = 0
+[pid 1142883] clone(child_stack=0xc000388000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS <unfinished ...>
+[pid 1142883] <... clone resumed>, tls=0xc00005a398) = 1142885
+strace: Process 1142885 attached
+strace: Process 1142886 attached
+strace: Process 1142887 attached
+strace: Process 1142888 attached
+strace: Process 1142889 attached
+strace: Process 1142890 attached
+[pid 1142876] execve("/docker-entrypoint.sh", ["/docker-entrypoint.sh", "nginx", "-g", "daemon off;"], 0xc00011bc20 /* 16 vars */ <unfinished ...>
+[pid 1142887] exit_group(0)             = ?
+[pid 1142890] +++ exited with 0 +++
+[pid 1142887] +++ exited with 0 +++
+[pid 1142886] +++ exited with 0 +++
+[pid 1142882] +++ exited with 0 +++
+[pid 1142889] +++ exited with 0 +++
+[pid 1142879] +++ exited with 0 +++
+[pid 1142878] +++ exited with 0 +++
+[pid 1142888] +++ exited with 0 +++
+[pid 1142884] +++ exited with 0 +++
+[pid 1142881] +++ exited with 0 +++
+[pid 1142880] +++ exited with 0 +++
+[pid 1142836] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1142884, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142876] <... execve resumed>)     = 0
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fb97f548a10) = 7
+strace: Process 1142891 attached
+[pid 1142891] execve("/usr/bin/find", ["/usr/bin/find", "/docker-entrypoint.d/", "-mindepth", "1", "-maxdepth", "1", "-type", "f", "-print", "-quit"], 0x5604bacbfc48 /* 17 vars */) = 0
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fb97f548a10) = 8
+strace: Process 1142892 attached
+[pid 1142891] exit_group(0)             = ?
+[pid 1142891] +++ exited with 0 +++
+[pid 1142876] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=7, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142892] exit_group(0)             = ?
+[pid 1142892] +++ exited with 0 +++
+[pid 1142876] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=8, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fb97f548a10) = 9
+strace: Process 1142893 attached
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+[pid 1142893] execve("/usr/bin/find", ["find", "/docker-entrypoint.d/", "-follow", "-type", "f", "-print"], 0x5604bacbfc18 /* 17 vars */strace: Process 1142894 attached
+ <unfinished ...>
+[pid 1142876] <... clone resumed>, child_tidptr=0x7fb97f548a10) = 10
+[pid 1142893] <... execve resumed>)     = 0
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 1142895 attached
+, child_tidptr=0x7fb97f548a10) = 11
+[pid 1142894] execve("/usr/bin/sort", ["sort", "-V"], 0x5604bacbf978 /* 17 vars */) = 0
+[pid 1142893] exit_group(0)             = ?
+[pid 1142894] exit_group(0)             = ?
+[pid 1142894] +++ exited with 0 +++
+[pid 1142876] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=10, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142893] +++ exited with 0 +++
+[pid 1142876] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=9, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142896 attached
+[pid 1142896] execve("/docker-entrypoint.d/10-listen-on-ipv6-by-default.sh", ["/docker-entrypoint.d/10-listen-o"...], 0x5604bacbf9d8 /* 17 vars */) = 0
+[pid 1142896] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fbf760c0a10) = 13
+strace: Process 1142897 attached
+[pid 1142897] execve("/usr/bin/basename", ["basename", "/docker-entrypoint.d/10-listen-o"...], 0x55e77125d998 /* 17 vars */) = 0
+[pid 1142897] exit_group(0)             = ?
+[pid 1142897] +++ exited with 0 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=13, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142898 attached
+[pid 1142898] execve("/usr/bin/touch", ["touch", "/etc/nginx/conf.d/default.conf"], 0x55e77125daf8 /* 17 vars */) = 0
+[pid 1142898] exit_group(0)             = ?
+[pid 1142898] +++ exited with 0 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=14, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142899 attached
+[pid 1142899] execve("/usr/bin/grep", ["grep", "-q", "listen  \\[::\\]:80;", "/etc/nginx/conf.d/default.conf"], 0x55e77125db30 /* 17 vars */) = 0
+[pid 1142899] exit_group(1)             = ?
+[pid 1142899] +++ exited with 1 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=15, si_uid=0, si_status=1, si_utime=0, si_stime=0} ---
+[pid 1142896] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 1142900 attached
+, child_tidptr=0x7fbf760c0a10) = 16
+[pid 1142900] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fbf760c0a10) = 17
+strace: Process 1142901 attached
+[pid 1142900] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+[pid 1142901] execve("/usr/bin/dpkg-query", ["dpkg-query", "--show", "--showformat=${Conffiles}\\n", "nginx"], 0x55e77125eb40 /* 17 vars */strace: Process 1142902 attached
+ <unfinished ...>
+[pid 1142900] <... clone resumed>, child_tidptr=0x7fbf760c0a10) = 18
+[pid 1142902] execve("/usr/bin/grep", ["grep", "etc/nginx/conf.d/default.conf"], 0x55e77125eaf8 /* 17 vars */ <unfinished ...>
+[pid 1142901] <... execve resumed>)     = 0
+[pid 1142902] <... execve resumed>)     = 0
+[pid 1142900] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 1142903 attached
+, child_tidptr=0x7fbf760c0a10) = 19
+[pid 1142903] execve("/usr/bin/cut", ["cut", "-d ", "-f", "3"], 0x55e77125eb20 /* 17 vars */) = 0
+[pid 1142901] exit_group(0)             = ?
+[pid 1142901] +++ exited with 0 +++
+[pid 1142900] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=17, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142902] exit_group(0)             = ?
+[pid 1142902] +++ exited with 0 +++
+[pid 1142900] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142903] exit_group(0)             = ?
+[pid 1142903] +++ exited with 0 +++
+[pid 1142900] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=19, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142900] exit_group(0)             = ?
+[pid 1142900] +++ exited with 0 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=16, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142896] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fbf760c0a10) = 20
+strace: Process 1142904 attached
+[pid 1142904] exit_group(0)             = ?
+[pid 1142904] +++ exited with 0 +++
+[pid 1142896] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 1142905 attached
+ <unfinished ...>
+[pid 1142896] <... clone resumed>, child_tidptr=0x7fbf760c0a10) = 21
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=20, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142905] execve("/usr/bin/md5sum", ["md5sum", "-c", "-"], 0x55e77125eb00 /* 17 vars */) = 0
+[pid 1142905] exit_group(0)             = ?
+[pid 1142905] +++ exited with 0 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=21, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142906 attached
+[pid 1142906] execve("/usr/bin/sed", ["sed", "-i", "-E", "s,listen       80;,listen       "..., "/etc/nginx/conf.d/default.conf"], 0x55e77125de20 /* 17 vars */) = 0
+[pid 1142906] exit_group(0)             = ?
+[pid 1142906] +++ exited with 0 +++
+[pid 1142896] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=22, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142896] exit_group(0)             = ?
+[pid 1142896] +++ exited with 0 +++
+[pid 1142895] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=12, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142907 attached
+[pid 1142907] execve("/docker-entrypoint.d/20-envsubst-on-templates.sh", ["/docker-entrypoint.d/20-envsubst"...], 0x5604bacbf9d8 /* 17 vars */) = 0
+[pid 1142907] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 1142908 attached
+, child_tidptr=0x7fa87f071a10) = 24
+[pid 1142908] execve("/usr/bin/basename", ["basename", "/docker-entrypoint.d/20-envsubst"...], 0x55e6611d87d8 /* 17 vars */) = 0
+[pid 1142908] exit_group(0)             = ?
+[pid 1142908] +++ exited with 0 +++
+[pid 1142907] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=24, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142907] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa87f071a10) = 25
+strace: Process 1142909 attached
+[pid 1142909] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7fa87f071a10) = 26
+strace: Process 1142910 attached
+[pid 1142910] execve("/usr/bin/awk", ["awk", "END { for (name in ENVIRON) { pr"...], 0x55e6611da5d8 /* 17 vars */) = 0
+[pid 1142910] exit_group(0)             = ?
+[pid 1142910] +++ exited with 0 +++
+[pid 1142909] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=26, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142909] exit_group(0)             = ?
+[pid 1142909] +++ exited with 0 +++
+[pid 1142907] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=25, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142907] exit_group(0)             = ?
+[pid 1142907] +++ exited with 0 +++
+[pid 1142895] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=23, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+strace: Process 1142911 attached
+[pid 1142911] execve("/docker-entrypoint.d/30-tune-worker-processes.sh", ["/docker-entrypoint.d/30-tune-wor"...], 0x5604bacbf9d8 /* 17 vars */) = 0
+[pid 1142911] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f66e0beca10) = 28
+strace: Process 1142912 attached
+[pid 1142912] execve("/usr/bin/basename", ["basename", "/docker-entrypoint.d/30-tune-wor"...], 0x558eaa66a828 /* 17 vars */) = 0
+[pid 1142912] exit_group(0)             = ?
+[pid 1142912] +++ exited with 0 +++
+[pid 1142911] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=28, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142911] exit_group(0)             = ?
+[pid 1142911] +++ exited with 0 +++
+[pid 1142895] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=27, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142895] exit_group(0)             = ?
+[pid 1142895] +++ exited with 0 +++
+[pid 1142876] --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=11, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+[pid 1142876] execve("/usr/local/sbin/nginx", ["nginx", "-g", "daemon off;"], 0x5604a73168e8 /* 17 vars */) = -1 ENOENT (No such file or directory)
+[pid 1142876] execve("/usr/local/bin/nginx", ["nginx", "-g", "daemon off;"], 0x5604a73168e8 /* 17 vars */) = -1 ENOENT (No such file or directory)
+[pid 1142876] execve("/usr/sbin/nginx", ["nginx", "-g", "daemon off;"], 0x5604a73168e8 /* 17 vars */) = 0
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f6485f66e50) = 29
+strace: Process 1142913 attached
+[pid 1142876] clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f6485f66e50) = 30
+strace: Process 1142914 attached
